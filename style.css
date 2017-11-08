@@ -1,0 +1,121 @@
+* {
+	margin: 0px;
+	padding: 0px;
+}
+body {
+	margin: 0 auto;
+	background-color: #33ccff;
+}
+
+ nav div span img {
+    width: 25%;
+    height: auto;
+}
+.container {
+	width: 90%;
+	margin-right: auto;
+	margin-left: auto;
+	padding-left: 14px;
+	padding-right: 14px;
+}
+
+/* Estilos generales */
+
+.center {
+	text-align: center;
+}
+
+/* Estilos Header */
+header {
+	background-color: #33ccff;
+	text-align: center;
+	margin-top: 50px;
+	margin-bottom: 60px;
+}
+
+header div img {
+	width: 10em;
+}
+
+/* contenedor */
+textarea {
+	width: 70%;
+	height: 4em;
+	color: #4E4D53;
+	font-size: 15px;
+	padding: 1em;
+	border-radius: 1em;
+	border: none;
+	margin: 0 auto;
+}
+
+/* Estilos botón agregar */
+#boton {
+	background-color: #33ccff;
+	border: 0px;
+	cursor: pointer;
+	text-align: center;
+	margin: 3em auto;
+	width: 130px;
+	height: 30px;
+	display: block;
+	color: #FFF;
+    border: 2px solid #fff;
+    font-size: 20px;
+    border-radius: 20px;
+}
+
+#boton:hover {
+	background-color: #fff;
+    color: #33ccff;
+}
+
+#boton:focus, textarea:focus{
+	outline: none;
+}
+
+/* Estilos contenedor comentarios */
+#contenedor {
+	border-radius: 0.4em;
+	width: 51em;
+	margin: 0 auto;
+	color: #4E4D53;
+	text-align: left;
+	margin-bottom: 6em;
+}
+
+#contenedor span {
+	margin-left: 1em;
+}
+
+#contenedor div {
+	padding: 1em 0.5em;
+	margin-bottom: 2em;
+	outline: 0.1em solid #E5E3F2;
+	background-color: #FFF;
+}
+
+.heart, .trash {
+	margin:1em;
+	float: right;
+}
+
+.trash:hover {
+	color: #1DA1F2;
+	cursor: pointer;
+}
+
+.strike-out {
+	text-decoration: line-through;
+	color: #1DA1F2;
+}
+
+.red {
+	color: #FC1E26;
+	cursor: pointer;
+}
+
+p {
+	display: inline-block;
+	margin-left: 0.5em;
+}
