@@ -1,29 +1,33 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title>Twitter</title>
-        <link rel="stylesheet" href="style.css">
-    </head>
-    <body>
-        <header>
-    		<nav>
-    			<div>
-    				<span><img src="img\twitter-logo.png" alt="logo"></span>
-    			</div>
-    		</nav>
-    	</header>
-        <section class="center">
-    		<div class="container">
-    			<textarea class="txt" id="comentario" placeholder="¿Qué está pasando?" value="" ></textarea>
-                <div><span id="contador"></span></div>
-    			<button type="submit" id="boton"><strong>Twittear</strong></button>
-    			<!-- contenedor comentarios -->
-    			<div id="contenedor"></div>
-    		</div>
-    	</section>
+<head>
+    <meta charset="utf-8">
+    <title>Twitter</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <div>
+            <span><img src="img\twitter-logo.png" alt="logo"></span>
+        </div>
+    </nav>
+    <div class="principal">
+        <div class="wrap">
+            <form class="formulario" action="">
+                <textarea class="comentario" id="tareaInput" placeholder="¿Qué está pasando?" onkeydown="contar()" onkeyup="contar()"></textarea>
+                <input disabled size="3" value="140" id="contador">
+                <input type="button" class="boton" id="btn-agregar" value="Twittear" onclick="add()" onkeydown="contar()" onkeyup="contar()">
+            </form>
+        </div>
+    </div>
+
+    <div class="tareas">
+        <div class="wrap">
+            <ul class="lista" id="lista"></ul>
+        </div>
+    </div>
 
     <script type="text/javascript" src="app.js"></script>
-    <script src="https://use.fontawesome.com/7873633050.js"></script>
-    </body>
+
+</body>
 </html>

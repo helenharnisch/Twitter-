@@ -1,66 +1,64 @@
+(function(){
+	// Variables
+	var lista = document.getElementById("lista");
+	var	tareaInput = document.getElementById("tareaInput");
+	var	btnNuevaTarea = document.getElementById("btn-agregar");
 
+	// Funciones
+	var agregarTarea = function(){
+        // Obtener contenido de nuestro textarea
+		var tarea = tareaInput.value;
+        // Crear un elemento (li)
+		var nuevaTarea = document.createElement("li");
+        // Crear un elemento (a)
+		var enlace = document.createElement("a");
+        // Crear nodo de texto
+		var contenido = document.createTextNode(tarea);
 
-	var boton = document.getElementById('boton');
+        // Validar que tareaInput tenga texto
+		if (tarea === "") {
+			tareaInput.setAttribute("disabled", false);
+			/*tareaInput.className = "error";
 
-	boton.addEventListener('click', function(){
-	//tenemos que tomar el texto ingresado en el textarea
-	var comments = document.getElementById('comentario').value;
+			return false;*/
+		}
 
-	//limpiar el textarea
-	document.getElementById('comentario').value = '';
+		// Agregamos el contenido al enlace
+		enlace.appendChild(contenido);
+		// Le establecemos un atributo href (para que sea clickable)
+		enlace.setAttribute("href", "#");
+		// Agrergamos el enlace (a) a la nueva tarea (li)
+		nuevaTarea.appendChild(enlace);
+		// Agregamos la nueva tarea a la lista
+		lista.appendChild(nuevaTarea);
 
-	//contenedor que esta en el html
-	var cont = document.getElementById('contenedor');
+        // Limpiar lista
+		tareaInput.value = "";
+        // Borrando Elementos de la lista
+        for (var i = 0; i <= lista.children.length -1; i++) {
+            lista.children[i].addEventListener("click", function(){
+                 this.parentNode.removeChild(this);
+            });
+        }
 
-	//creamos el div que contiene cada comentario
-	var newComments = document.createElement('div');
+    };
 
-	//validar que textarea tenga un msje
-	if(comments.length == 0 || comments == null) {
-		alert('Debes ingresar un mensaje');
-		return false;
-	}
-	//crear checkbox
-	var chck = document.createElement('input');
-	chck.type = 'checkbox';
-	//creamos icono de corazon
-	var heart = document.createElement('i');
-	heart.classList.add('fa', 'fa-heart', 'heart');
-	//creamos icono de basura
-	var trash = document.createElement('i');
-	trash.classList.add('fa', 'fa-trash', 'trash');
-	//nodos de texto del textarea
-	var textNewComment = document.createTextNode(comments);
+    // Eliminar clase ("agrega una tarea valida") y restablecer placeholder
+    var comprobarInput = function(){
+    tareaInput.className = "";
+    tareaInput.setAttribute("placeholder", "¿Qué está pasando?");
+    };
 
-	var contenedorElemento = document.createElement('p');
-	contenedorElemento.appendChild(textNewComment);
-	newComments.appendChild(chck);
-	newComments.appendChild(trash);
-	newComments.appendChild(heart);
-	newComments.appendChild(contenedorElemento);
+	/*function cuenta(){
+    document.forms[0].caracteres.value=document.forms[0].texto.value.length
+    }*/
 
-	cont.appendChild(newComments);
-	//evento que al hacer click le agrega color rojo al corazón
-	heart.addEventListener('click', function(){
-		heart.classList.toggle('red');
-	})
-	//evento que al hacer click remueve el div del comentario completo
-	trash.addEventListener('click', function(){
-		cont.removeChild(newComments);
-	})
-	//evento que agrega tachado al párrafo al hacer click en el checkbox
-	chck.addEventListener('click', function(){
-		contenedorElemento.classList.toggle('strike-out'); //agrego clase tachado a parrafo contenedor de comentarios, se activa al hacer click, toggle es como un switch, agrega y quita sucesivamente
-	})
+    // Eventos
 
-})
+    // Agregar Tarea
+    btnNuevaTarea.addEventListener("click", agregarTarea);
 
-/*fuction habilitar()
-var comments = document.getElementById("comment");
-var boton = document.getElementById("btn");
-var cont = document.getElementById('cont');
-if (comments.length == 0 ||  comments == null && cont.length == 0 || cont == null ) {
-   boton.disabled = true;
-} else {
-   boton.disabled = false;
-}*/
+    // Comprobar textarea
+    tareaInput.addEventListener("click", comprobarInput);
+
+}());
